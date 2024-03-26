@@ -1,10 +1,10 @@
 #ifndef print_type.h
 #define print_type.h
-void print_string(va_list chec_type);
-void print_1_c(va_list chec_type);
-void print_int(va_list chec_type);
-void print_d(va_list chec_type);
-nt _printf(const char *format, ...);
+int print_string(va_list chec_type);
+int print_1_c(va_list chec_type);
+int print_int(va_list chec_type);
+int print_d(va_list chec_type);
+int _printf(const char *format, ...);
 int _putchar(char c);
 typedef struct print_type
 {
