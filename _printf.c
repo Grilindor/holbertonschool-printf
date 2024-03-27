@@ -9,11 +9,11 @@
 int _printf(const char *format, ...)
 {
 	array check[] = {
-		/*{"c", print_1_c},*/
-		/*{"i", print_d_i},*/
-		/*{"%", print_modulo},*/
+		{"i", print_d_i},
+		{"%", print_modulo},
 		{"s", print_string},
-		/*{"d", print_d_i},*/
+		{"c", print_1_c},
+		{"d", print_d_i},
 		{NULL, NULL}
 	};
 
@@ -29,26 +29,26 @@ int _printf(const char *format, ...)
 
 	while (format[i] && format)
 	{
-		j = 0;
-		while(j < 1)/**/
+		if (format[i] == '%')
 		{
-			if (format[i] == '%' && format[i + 1] == check[j].the_format_in_char[0])
+			j = 0;
+			while(j < 5)
 			{
-				check[j].funcp(chec_type);
-				i++;
-				break;
+				if (format[i + 1] == check[j].the_format_in_char[0])
+				{
+					count += check[j].funcp(chec_type);
+				}
+				j++;
 			}
-
-			else
-			{
-				_putchar(format[i]);
-			}
-			j++;
+			i++;
 		}
-		j = 0;
+		else
+		{
+			_putchar(format[i]);
+			count++;
+		}
 		i++;
-		count++;
-	}
-	va_end(chec_type);
-	return (count);
+        }
+        va_end(chec_type);
+        return (count);
 }
