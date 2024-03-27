@@ -3,24 +3,38 @@
 #include "main.h"
 
 /**
- *
+ * print_1_c - function who print one character
+ * @chec_type: it's argument whit a pointer
+ * Return: return 1 on success
  **/
 
 int print_1_c(va_list chec_type)
 {
-        _putchar(va_arg(chec_type, int));
-        return (1);
+	_putchar(va_arg(chec_type, int));
+	return (1);
 }
+
+/**
+ * print_string - function who print a string pointer
+ * @chec_type: it's argument whit a pointer
+ * Return: i, in link with str
+ **/
 
 int print_string(va_list chec_type)
 {
 	char *str = va_arg(chec_type, char*);
 	int i;
-
+/*changing the int on char pointer*/
 	for (i = 0; str[i] != '\0'; i++)
 		_putchar(str[i]);
 	return (i);
 }
+
+/**
+ * print_d_i - function who print a decimal in output
+ * @chec_type: it's argument whit a pointer
+ * Return: count
+ **/
 
 int print_d_i(va_list chec_type)
 {
@@ -28,20 +42,20 @@ int print_d_i(va_list chec_type)
 	int num = va_arg(chec_type, int);
 
 	if (num < 0)
-	{
+	{/*change the value in negatif if num is inferior than 0*/
 		num *= -1;
 		putchar('-');
-		count ++;
+		count++;
 	}
 	buffer = num;
-
-	for (numt = 0; (buffer / 10) > 0; numt ++)
+/*here to print 2 digits whit putchar, the first here*/
+	for (numt = 0; (buffer / 10) > 0; numt++)
 		buffer /= 10;
 	buffer = num;
-
+/*here the seconde*/
 	while (numt != 0)
 	{
-		for(i = 0; i < numt; i ++)
+		for (i = 0; i < numt; i++)
 			buffer /= 10;
 		buffer %= 10;
 		_putchar(buffer + '0');
@@ -49,44 +63,21 @@ int print_d_i(va_list chec_type)
 		numt--;
 		buffer = num;
 	}
+/*here we print the result and return the count*/
 	_putchar(num % 10 + '0');
-	/*_putchar((num / 10) + '0');*/
 	count++;
 	return (count);
 }
 
-/*int print_d_i(va_list chec_type)
-{
-	int n = va_arg(chec_type, int);
-	int count = 0;
-	int array[12];
-	int index = 0, i;
-
-	if (n < 0)
-	{
-		_putchar('-');
-		n = -n;
-		count++;
-	}
-
-	do {
-		array[index++] = n % 10;
-		n /= 10;
-	} while (n > 0);
-
-	for (i = index - 1; i >= 0; i--)
-	{
-		putchar('0' + array[i]);
-		count++;
-	}
-
-	return (count);
-}
-*/
+/**
+ * print_modulo - function who print a pourcentage %
+ * @chec_type: it's argument whit a pointer
+ * Return: 1
+ **/
 
 int print_modulo(va_list chec_type)
 {
-	(void)chec_type;
+	(void)chec_type; /*change the parameter of chec_type*/
 	_putchar('%');
 	return (1);
 	}
