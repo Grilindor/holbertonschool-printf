@@ -16,16 +16,13 @@ int print_string(va_list chec_type)
 	return (i);
 }
 
-int print_1_c(va_list chec_type)
+/*int print_1_c(va_list chec_type)
 {
 	_putchar(va_arg(chec_type, char));
 	return (1);
 }
 
 
-/**
-*Decimal , les chiffre en entier
-**/
 
 int print_d_i(va_list chec_type)
 {
@@ -49,20 +46,17 @@ int print_d_i(va_list chec_type)
 
 	for (i = index - 1; i >= 0; i--)
 	{
-		putchar('0' + digits[i]);
+		putchar('0' + n[i]);
 		count++;
 	}
 
 	return (count);
 }
 
-/**
- *modulo
- **/
 
 int print_modulo(va_list chec_type)
 {
 	(void)chec_type;
 	_putchar('%');
 	return (1);
-}
+	}*/

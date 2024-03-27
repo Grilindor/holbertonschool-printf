@@ -1,60 +1,47 @@
 #include "main.h"
-#include "print_type.h"
 #include <stdlib.h>
 #include <stdarg.h>
+#include <stdio.h>
 /**
  *
  **/
 
-void print_string(va_list chec_type)
-{
-	
-}
-
-void print_1_c(va_list chec_type)
-{
-	
-}
-
-void print_int(va_list chec_type)
-{
-
-}
-
-void print_d(va_list chec_type)
-{
-
-}
 int _printf(const char *format, ...)
 {
 	array check[] = {
-		{"c", print_1_c},
-		{"i", print_int},
-		{"%", printfloat},
+		/*{"c", print_1_c},*/
+		/*{"i", print_d_i},*/
+		/*{"%", print_modulo},*/
 		{"s", print_string},
-		{"d", print_d},
+		/*{"d", print_d_i},*/
 		{NULL, NULL}
 	};
-
 
 	va_list chec_type;
 	int i = 0, j = 0, count = 0;
 
 	va_start(chec_type, format);
 
-	if (!format)
+	/*if (!format)
 	{
 		return(NULL);
-	}
+	}*/
 
 	while (format[i] && format)
 	{
 		j = 0;
-		while(j < 5)
+		while(j < 1)/**/
 		{
-			if (format[i] == check[j].the_format_in_char[0])
+			if (format[i] == '%' && format[i + 1] == check[j].the_format_in_char[0])
 			{
-				check[j].Funcp(chec_type);
+				check[j].funcp(chec_type);
+				i++;
+				break;
+			}
+
+			else
+			{
+				_putchar(format[i]);
 			}
 			j++;
 		}
@@ -62,6 +49,6 @@ int _printf(const char *format, ...)
 		i++;
 		count++;
 	}
-	return (count);
 	va_end(chec_type);
+	return (count);
 }
