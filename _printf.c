@@ -3,7 +3,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 /**
-*_printf - this is the type of the format argument
+*_printf - function returns an integer representing the number of characters
 *@format: argument that contains the formatting of the str to be printed.
 * Return: return the correct type of format to print
 **/
