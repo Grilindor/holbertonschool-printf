@@ -1,0 +1,88 @@
+.Dd 28/03/2024               \" DATE
+.Dt _printf man_3_printf      \" Program name and manual section number
+.Os Darwin
+.Sh NAME                 \" Section Header - required - don't modify
+.Nm
+.\" The following lines are read in generating the apropos(man -k) database. Use only key
+.\" words here as the database is built based on the words here and in the .ND line.
+.Nm _printf, printf.
+.\" Use .Nm macro to designate other names for the documented program.
+
+.Sh DESCRIPTION          \" Section Header - required - don't modify
+
+The `_printf` function in C is used to print formatted output to the standard
+output stream (usually the console). It takes a format string as its first argument
+, which can contain placeholders for variables that need to be printed. These
+placeholders are specified using format specifiers such as `%d` for integers,
+`%f` for floating-point numbers, `%s` for strings, etc. The `printf` function
+then replaces these placeholders with the actual values of the variables provided
+as additional arguments.
+The formatted output is displayed on the console according to the format specified
+in the format string.
+.Pp
+.Sh
+%s : print string
+.Pp
+%d : print decimal
+.Pp
+%c : Print character
+.Pp
+%% : print string if percent is include in a phrase
+.El                      \" Ends the list
+.Pp
+.\" .Sh ENVIRONMENT      \" May not be needed
+.\" .Bl -tag -width "ENV_VAR_1" -indent \" ENV_VAR_1 is width of the string ENV_VAR_1
+.\" .It Ev ENV_VAR_1
+.\" Description of ENV_VAR_1
+.\" .It Ev ENV_VAR_2
+.\" Description of ENV_VAR_2
+.\" .El
+.Sh FILES                \" File used or created by the topic of the man page
+.Bl -tag -width "/Users/joeuser/Library/really_long_file_name" -compact
+.It Pa _printf.c
+the main code of the function _printf
+.It Pa print_types.c
+here are the functions for %d, %c, %s, ....
+.It Pa main.h
+it's have the prothotype
+.El                      \" Ends the list
+.\" .Sh DIAGNOSTICS       \" May not be needed
+.\" .Bl -diag
+.\" .It Diagnostic Tag
+.\" Diagnostic informtion here.
+.\" .It Diagnostic Tag
+.\" Diagnostic informtion here.
+.\" .El
+.Sh Exemple
+.Nm Print a single character
+.Pp
+.Sh
+char letter = 'A';
+.Pp
+printf("The letter is: %c\n", letter);
+.Pp
+.Sh
+.Nm Print a decimal
+.Pp
+.Sh
+int num = 10;
+.Pp
+_printf("The value of num is: %d\n", num);
+.Pp
+.Sh
+.Nm Print a string
+.Pp
+.Sh
+_printf("I am currently printing a string\\n");
+.Pp
+_printf("%s\\n", "I am currently printing a string\\n");
+.Xr
+.Sh SEE ALSO
+.\" List links in ascending order by section, alphabetically within a section.
+.\" Please do not reference files that do not exist without filing a bug report
+.Xr
+printf, stdarg
+.\" .Sh BUGS              \" Document known, unremedied bugs
+.\" .Sh HISTORY           \" Document history if command behaves in a unique manner
+.Sh AUTHORS
+Francia RAMAROLATHY, Marc CORNABAS - #C23 Laval
