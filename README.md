@@ -23,8 +23,8 @@
          -Prototype: int _printf(const char *format, ...);
          for following conversion specifiers:
 
-         |Specifier      |Output
-         |---------------|-------------------|
+         |Specifier        | Output
+         | --------------- | ------------------- |
          |'c'|Character|
          |'s'|String|
          |'%'|Pourcentage|
@@ -34,8 +34,8 @@
 
        Adding more specifiers:
 
-       Specifier                |Output
-       |----------------|-------------------------------|
+       Specifier         | Output
+       | --------------- | ------------------------------- |
        | `d` |Decimal|
        |`i`|Integer Value|
 
