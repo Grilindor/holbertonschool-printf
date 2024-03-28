@@ -1,46 +1,33 @@
-.\"Modified from man(1) of FreeBSD, the NetBSD mdoc.template, and mdoc.samples.
-.\"See Also:
-.\"man mdoc.samples for a complete listing of options
-.\"man mdoc for the short list of editing options
-.\"/usr/share/misc/mdoc.template
-.Dd 8/4/10               \" DATE
+.Dd 28/03/2024               \" DATE
 .Dt _printf man_3_printf      \" Program name and manual section number
 .Os Darwin
 .Sh NAME                 \" Section Header - required - don't modify
 .Nm
 .\" The following lines are read in generating the apropos(man -k) database. Use only key
 .\" words here as the database is built based on the words here and in the .ND line.
-.Nm printf, fprintf, sprintf, snprintf, asprintf, dprintf, vprintf, vfprintf,
-.Nm vsprintf, vsnprintf, vasprintf, vdprintf -- formatted output conversion
+.Nm _printf, printf.
 .\" Use .Nm macro to designate other names for the documented program.
-.Sh SYNOPSIS             \" Section Header - required - don't modify
-.Nm
-.Op Fl abcd              \" [-abcd]
-.Op Fl a Ar path         \" [-a path]
-.Op Ar file              \" [file]
-.Op Ar                   \" [file ...]
-.Ar arg0                 \" Underlined argument - use .Ar anywhere to underline
-arg2 ...                 \" Arguments
+
 .Sh DESCRIPTION          \" Section Header - required - don't modify
-Use the .Nm macro to refer to your program throughout the man page like such:
-.Nm
-Underlining is accomplished with the .Ar macro like this:
-.Ar underlined text .
-.Pp                      \" Inserts a space
-A list of items with descriptions:
-.Bl -tag -width -indent  \" Begins a tagged list
-.It item a               \" Each item preceded by .It macro
-Description of item a
-.It item b
-Description of item b
-.El                      \" Ends the list
+
+The `_printf` function in C is used to print formatted output to the standard
+output stream (usually the console). It takes a format string as its first argument
+, which can contain placeholders for variables that need to be printed. These
+placeholders are specified using format specifiers such as `%d` for integers,
+`%f` for floating-point numbers, `%s` for strings, etc. The `printf` function
+then replaces these placeholders with the actual values of the variables provided
+as additional arguments.
+The formatted output is displayed on the console according to the format specified
+in the format string.
 .Pp
-A list of flags and their descriptions:
-.Bl -tag -width -indent  \" Differs from above in tag removed
-.It Fl a                 \"-a flag as a list item
-Description of -a flag
-.It Fl b
-Description of -b flag
+.Sh
+%s : print string
+.Pp
+%d : print decimal
+.Pp
+%c : Print character
+.Pp
+%% : print string if percent is include in a phrase
 .El                      \" Ends the list
 .Pp
 .\" .Sh ENVIRONMENT      \" May not be needed
@@ -67,13 +54,34 @@ it's have the prothotype
 .\" Diagnostic informtion here.
 .\" .El
 .Sh Exemple
+.Nm Print a single character
+.Pp
+.Sh
+char letter = 'A';
+.Pp
+printf("The letter is: %c\n", letter);
+.Pp
+.Sh
+.Nm Print a decimal
+.Pp
+.Sh
+int num = 10;
+.Pp
+_printf("The value of num is: %d\n", num);
+.Pp
+.Sh
+.Nm Print a string
+.Pp
+.Sh
+_printf("I am currently printing a string\\n");
+.Pp
+_printf("%s\\n", "I am currently printing a string\\n");
 .Xr
 .Sh SEE ALSO
 .\" List links in ascending order by section, alphabetically within a section.
 .\" Please do not reference files that do not exist without filing a bug report
 .Xr
-printf(1), printf_l(3), fmtcheck(3), scanf(3), setlocale(3), stdarg(3),
-     wprintf(3)
+printf, stdarg
 .\" .Sh BUGS              \" Document known, unremedied bugs
 .\" .Sh HISTORY           \" Document history if command behaves in a unique manner
 .Sh AUTHORS
