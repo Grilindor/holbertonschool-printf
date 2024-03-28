@@ -3,8 +3,9 @@
 #include <stdarg.h>
 #include <stdio.h>
 /**
-*@char: this is the type of the format argument
-*@format: the name of the arg that contains the formatting of the str to be printed.
+*_printf - this is the type of the format argument
+*@format: argument that contains the formatting of the str to be printed.
+* Return: return the correct type of format to print
 **/
 int _printf(const char *format, ...)
 {
@@ -21,12 +22,8 @@ int _printf(const char *format, ...)
 	int i = 0, j = 0, count = 0; /* declaration of three integer variables*/
 
 	va_start(chec_type, format); /* va_start initializes va_list*/
-/**
- *if (!format)
-	{
-		return(NULL);
-}
-**/
+	if (!format)
+		return (-1);
 	while (format[i] && format) /**checks that the format s-tring exists and
 				      *has not been terminated**/
 	{
@@ -34,23 +31,17 @@ int _printf(const char *format, ...)
 		{
 			j = 0;
 			while (j < 5)
-			{
+			{/**checks the character following the %( format[i + 1]) = the first
+			  *character in the checkstructure**/
 				if (format[i + 1] == check[j].the_format_in_char[0])
-/**
-*it checks to see character following the %( format[i + 1]) = the first
-*character in the checkstructure.
-**/
-				{
 					count += check[j].funcp(chec_type);
-				}
 				j++;
 			}
 			i++;
 		}
 		else
 		{
-			_putchar(format[i]);/**only be executed if preceding
-					      *condition is true**/
+			_putchar(format[i]);/*executed if pre condit is true*/
 			count++;
 		}
 		i++;
