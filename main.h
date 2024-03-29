@@ -1,5 +1,10 @@
 #ifndef PRINT_TYPE_H
 #define PRINT_TYPE_H
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <limits.h>
+#include <string.h>
 #include <stdarg.h>
 int print_string(va_list chec_type);
 int print_1_c(va_list chec_type);
