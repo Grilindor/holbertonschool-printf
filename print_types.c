@@ -1,7 +1,4 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "main.h"
-
 /**
  * print_1_c - function who print one character
  * @chec_type: it's argument whit a pointer
@@ -41,6 +38,8 @@ int print_d_i(va_list chec_type)
 	int i, numt, buffer, count = 0;
 	int num = va_arg(chec_type, int);
 
+	if (num > INT_MAX || num < INT_MIN)
+		return (-1);
 	if (num < 0)
 	{/*change the value in negatif if num is inferior than 0*/
 		num *= -1;
@@ -48,11 +47,11 @@ int print_d_i(va_list chec_type)
 		count++;
 	}
 	buffer = num;
-/*here to print 2 digits whit putchar, the first here*/
+/*here we cut  and stock in numt*/
 	for (numt = 0; (buffer / 10) > 0; numt++)
 		buffer /= 10;
 	buffer = num;
-/*here the seconde*/
+/*numt= +xfois long of format, */
 	while (numt != 0)
 	{
 		for (i = 0; i < numt; i++)
@@ -78,6 +77,5 @@ int print_d_i(va_list chec_type)
 int print_modulo(va_list chec_type)
 {
 	(void)chec_type; /*change the parameter of chec_type*/
-	_putchar('%');
-	return (1);
+	return (write(1, "%", 1));
 }
