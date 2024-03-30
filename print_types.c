@@ -22,6 +22,8 @@ int print_string(va_list chec_type)
 	char *str = va_arg(chec_type, char*);
 	int i;
 /*changing the int on char pointer*/
+	if (!str || str == NULL)
+		str = "(null)";
 	for (i = 0; str[i] != '\0'; i++)
 		_putchar(str[i]);
 	return (i);
