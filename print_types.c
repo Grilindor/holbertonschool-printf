@@ -42,11 +42,11 @@ int print_d_i(va_list chec_type)
 
 	if (num > INT_MAX || num < INT_MIN)
 		return (-1);
+
 	if (num < 0)
 	{/*change the value in negatif if num is inferior than 0*/
 		num *= -1;
-		putchar('-');
-		count++;
+		count = count + _putchar('-');
 	}
 	buffer = num;
 /*here we cut  and stock in numt*/
